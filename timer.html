@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>타이머 — 툴박스</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/timer.css">
+  <script>try { const t = localStorage.getItem("tb-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body data-page="timer">
+  <header id="site-header"></header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>⏱️ 타이머</h1>
+      <p>스톱워치, 카운트다운, 뽀모도로. 시간이 다 되면 소리로 알려드려요.</p>
+    </div>
+
+    <div class="segmented" role="tablist" aria-label="타이머 종류">
+      <button role="tab" aria-selected="true" data-mode="stopwatch">스톱워치</button>
+      <button role="tab" aria-selected="false" data-mode="countdown">카운트다운</button>
+      <button role="tab" aria-selected="false" data-mode="pomodoro">뽀모도로</button>
+    </div>
+
+    <!-- Stopwatch -->
+    <section class="timer-card panel" data-panel="stopwatch">
+      <div class="big-time" id="sw-time">00:00<small>.00</small></div>
+      <div class="controls">
+        <button class="btn btn-primary" id="sw-start">시작</button>
+        <button class="btn" id="sw-lap" disabled>랩</button>
+        <button class="btn" id="sw-reset" disabled>초기화</button>
+      </div>
+      <ol class="laps" id="sw-laps"></ol>
+    </section>
+
+    <!-- Countdown -->
+    <section class="timer-card panel" data-panel="countdown" hidden>
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="54"/>
+          <circle class="ring-fg" id="cd-ring" cx="60" cy="60" r="54"/>
+        </svg>
+        <div class="big-time ring-time" id="cd-time">05:00</div>
+      </div>
+      <div class="cd-inputs" id="cd-inputs">
+        <label><input class="input" type="number" id="cd-min" min="0" max="999" value="5"><span>분</span></label>
+        <label><input class="input" type="number" id="cd-sec" min="0" max="59" value="0"><span>초</span></label>
+      </div>
+      <div class="presets">
+        <button class="chip" data-sec="60">1분</button>
+        <button class="chip" data-sec="180">3분</button>
+        <button class="chip" data-sec="300">5분</button>
+        <button class="chip" data-sec="600">10분</button>
+        <button class="chip" data-sec="1800">30분</button>
+      </div>
+      <div class="controls">
+        <button class="btn btn-primary" id="cd-start">시작</button>
+        <button class="btn" id="cd-reset">초기화</button>
+      </div>
+    </section>
+
+    <!-- Pomodoro -->
+    <section class="timer-card panel" data-panel="pomodoro" hidden>
+      <div class="pomo-phase" id="pomo-phase">🍅 집중 시간</div>
+      <div class="big-time" id="pomo-time">25:00</div>
+      <div class="pomo-dots" id="pomo-dots" aria-label="완료한 뽀모도로"></div>
+      <div class="controls">
+        <button class="btn btn-primary" id="pomo-start">시작</button>
+        <button class="btn" id="pomo-skip">건너뛰기</button>
+        <button class="btn" id="pomo-reset">초기화</button>
+      </div>
+      <p class="hint">25분 집중 → 5분 휴식, 4회마다 15분 긴 휴식</p>
+    </section>
+  </main>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/timer.js"></script>
+</body>
+</html>

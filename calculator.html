@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>계산기 — 툴박스</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/calculator.css">
+  <script>try { const t = localStorage.getItem("tb-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body data-page="calculator">
+  <header id="site-header"></header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>🧮 계산기</h1>
+      <p>괄호와 백분율을 지원합니다. 키보드로도 입력할 수 있어요.</p>
+    </div>
+
+    <div class="calc-layout">
+      <section class="calc panel" aria-label="계산기">
+        <div class="display">
+          <div class="expr" id="expr" aria-live="polite">&nbsp;</div>
+          <div class="result" id="result">0</div>
+        </div>
+        <div class="keys" id="keys">
+          <button class="key fn" data-action="clear">AC</button>
+          <button class="key fn" data-value="(">(</button>
+          <button class="key fn" data-value=")">)</button>
+          <button class="key op" data-value="÷">÷</button>
+
+          <button class="key" data-value="7">7</button>
+          <button class="key" data-value="8">8</button>
+          <button class="key" data-value="9">9</button>
+          <button class="key op" data-value="×">×</button>
+
+          <button class="key" data-value="4">4</button>
+          <button class="key" data-value="5">5</button>
+          <button class="key" data-value="6">6</button>
+          <button class="key op" data-value="−">−</button>
+
+          <button class="key" data-value="1">1</button>
+          <button class="key" data-value="2">2</button>
+          <button class="key" data-value="3">3</button>
+          <button class="key op" data-value="+">+</button>
+
+          <button class="key fn" data-value="%">%</button>
+          <button class="key" data-value="0">0</button>
+          <button class="key" data-value=".">.</button>
+          <button class="key eq" data-action="equals">=</button>
+
+          <button class="key fn wide" data-action="back" aria-label="한 글자 지우기">⌫ 지우기</button>
+          <button class="key fn wide" data-action="negate">± 부호</button>
+        </div>
+      </section>
+
+      <aside class="history panel" aria-label="계산 기록">
+        <div class="history-head">
+          <h2>기록</h2>
+          <button class="btn btn-danger" id="clear-history">비우기</button>
+        </div>
+        <ol class="history-list" id="history"></ol>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/calculator.js"></script>
+</body>
+</html>

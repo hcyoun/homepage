@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>노트 — 툴박스</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/notes.css">
+  <script>try { const t = localStorage.getItem("tb-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body data-page="notes">
+  <header id="site-header"></header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>📝 노트</h1>
+      <p>입력하는 즉시 이 브라우저에 자동 저장됩니다.</p>
+    </div>
+
+    <div class="notes-layout panel">
+      <aside class="notes-side">
+        <div class="side-top">
+          <input class="input" id="search" type="search" placeholder="노트 검색" aria-label="노트 검색">
+          <button class="btn btn-primary" id="new-note" title="새 노트 (Alt+N)">＋ 새 노트</button>
+        </div>
+        <ul class="note-list" id="note-list" aria-label="노트 목록"></ul>
+      </aside>
+
+      <section class="editor" id="editor">
+        <div class="editor-empty" id="editor-empty">
+          <div class="empty-icon">🗒️</div>
+          <p>노트를 선택하거나 새로 만들어 보세요.</p>
+        </div>
+        <div class="editor-body" id="editor-body" hidden>
+          <div class="editor-toolbar">
+            <button class="btn back-btn" id="back-btn">← 목록</button>
+            <span class="saved" id="saved">저장됨</span>
+            <div class="toolbar-actions">
+              <button class="btn" id="pin-btn">📌 고정</button>
+              <button class="btn" id="download-btn" title="텍스트 파일로 저장">⬇ 내보내기</button>
+              <button class="btn btn-danger" id="delete-btn">삭제</button>
+            </div>
+          </div>
+          <input class="title-input" id="title" placeholder="제목" aria-label="제목" maxlength="120">
+          <textarea class="body-input" id="body" placeholder="내용을 입력하세요…" aria-label="내용"></textarea>
+          <div class="editor-meta" id="meta"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/notes.js"></script>
+</body>
+</html>

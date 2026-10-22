@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>단위 변환 — 툴박스</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/converter.css">
+  <script>try { const t = localStorage.getItem("tb-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body data-page="converter">
+  <header id="site-header"></header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>📏 단위 변환</h1>
+      <p>값을 입력하면 즉시 변환됩니다. 아래 표에서 모든 단위를 한눈에 볼 수 있어요.</p>
+    </div>
+
+    <div class="categories" id="categories" role="tablist" aria-label="변환 종류"></div>
+
+    <section class="conv panel">
+      <div class="conv-side">
+        <label class="label" for="from-value">변환할 값</label>
+        <input class="input big" id="from-value" type="number" inputmode="decimal" value="1">
+        <select class="input" id="from-unit" aria-label="변환할 단위"></select>
+      </div>
+      <button class="swap" id="swap" aria-label="단위 서로 바꾸기" title="서로 바꾸기">⇄</button>
+      <div class="conv-side">
+        <label class="label" for="to-value">결과</label>
+        <input class="input big" id="to-value" type="text" readonly>
+        <select class="input" id="to-unit" aria-label="결과 단위"></select>
+      </div>
+    </section>
+    <p class="formula" id="formula"></p>
+
+    <section class="all panel">
+      <h2>전체 단위</h2>
+      <table>
+        <tbody id="all-table"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/converter.js"></script>
+</body>
+</html>

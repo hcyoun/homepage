@@ -1,0 +1,40 @@
+.calc-layout { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 20px; align-items: start; }
+
+.calc { padding: 20px; }
+.display {
+  background: var(--surface-2); border-radius: 14px; padding: 18px 20px; margin-bottom: 16px;
+  text-align: right; overflow: hidden;
+}
+.expr { color: var(--muted); font-family: var(--mono); font-size: .95rem; min-height: 1.5em; overflow-wrap: anywhere; }
+.result { font-family: var(--mono); font-size: 2.6rem; font-weight: 600; line-height: 1.2; overflow-wrap: anywhere; }
+.result.error { color: var(--danger); font-size: 1.4rem; }
+
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.key {
+  height: 60px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface);
+  font-size: 1.3rem; font-weight: 600; cursor: pointer; transition: transform .08s, background .12s;
+}
+.key:hover { background: var(--surface-2); }
+.key:active, .key.pressed { transform: scale(.95); }
+.key.fn { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+.key.op { background: var(--surface-2); font-size: 1.5rem; }
+.key.eq { background: var(--accent); color: #fff; border-color: var(--accent); }
+.key.wide { grid-column: span 2; font-size: .95rem; height: 46px; }
+
+.history { padding: 20px; min-height: 200px; }
+.history-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.history-head h2 { font-size: 1.1rem; }
+.history-head .btn { padding: 6px 12px; font-size: .85rem; }
+.history-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 460px; overflow-y: auto; }
+.history-list li button {
+  width: 100%; text-align: right; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid transparent; background: var(--surface-2); cursor: pointer; font-family: var(--mono);
+}
+.history-list li button:hover { border-color: var(--accent); }
+.history-list .h-expr { display: block; color: var(--muted); font-size: .85rem; }
+.history-list .h-res { font-size: 1.1rem; font-weight: 600; }
+.history-empty { color: var(--muted); text-align: center; padding: 32px 0; font-size: .9rem; }
+
+@media (max-width: 760px) {
+  .calc-layout { grid-template-columns: 1fr; }
+}
